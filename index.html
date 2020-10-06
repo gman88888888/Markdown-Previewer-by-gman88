@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Markdown Previewer by gman88</title>
+
+    <script src="./js/marked.js"></script>
+    <script>
+          function updatePreview() {
+          let previewElement = document.getElementById("preview");
+          let editorValue = document.getElementById("editor").value;
+          let markedUpHTML = marked(editorValue);
+          previewElement.innerHTML =   markedUpHTML;
+        }
+
+        function setDefault() {
+          let defaultText = `
+
+# gman88
+## Markdown Previewer
+[Learn more about coding](http://www.usefulprogrammer.org).
+<dl>
+<dt>Definition list</dt>
+<dd>Is something people use sometimes.</dd>
+<dt>Markdown in HTML</dt>
+<dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
+</dl>
+
+\`Just getting started\`
+
+\`\`\`
+function exampleOf(){
+  return multiLineCodeBlock;
+}
+\`\`\`
+
+- coding
+- for
+- fun
+
+> I am learning to be a usefull programmer
+
+![I'm just a newbie](https://i2.wp.com/www.alifeoverseas.com/wp-content/uploads/2015/09/Newbie-frog.png)
+
+**Bolded Text**
+          `;
+
+          let editorField = document.getElementById("editor");
+          let previewElement = document.getElementById("preview");
+          editorField.value = defaultText;
+          previewElement.innerHTML = marked(defaultText);
+        }
+    </script>
+
+  </head>
+  <body onload="setDefault()">
+    <div class="container-fluid">
+      <div class="row">
+        <div class= "col text-center">
+          <h1> Markdown Previewer by gman88</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class= "col-6">
+          <p>The editor will be here</p>
+          <textarea id="editor" onkeyup="updatePreview()"> </textarea>
+        </div>
+        <div class= "col-6">
+          <p>The markdown Previewer will be here</p>
+          <div id="preview">
+          </div>
+        </div>
+      </div>
+  </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>
